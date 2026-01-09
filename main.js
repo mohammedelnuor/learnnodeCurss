@@ -16,13 +16,23 @@ app.get("/ti", (req,res) => {
     res.send("ti guys")
 });
 
+app.get("/go", (req,res) => {
+    res.send("go guys")
+});
+
 
 app.delete("/de", (req,res) => {
     res.send("delete guys ")
 });
 
 
+app.get("/findSummation", (req,res) => {
+     res.send("find summation")
+});
+
+
 
 app.listen(3000, () => {
-    console.log("Server is running on port 3000");
+    console.log("57 Server is running on port 3000");
 });
+
