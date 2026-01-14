@@ -22,7 +22,8 @@ app.get("/numbers", (req,res) => {
     for(let i=0; i<=100; i++){
         numbers += i + " ";
     }
-    res.send(`the numbers are : ${numbers}`);
+    // res.send(`the numbers are : ${numbers}`);
+    res.sendFile(__dirname + "/views/numbers.html");
 });
 
 app.get("/findSum/:numbers1/:numbers2", (req,res) => {
@@ -36,9 +37,15 @@ const num2 = req.params.numbers2;
 app.get("/sehello", (req,res) => {
     
 
-    console.log(req.query);
+    // console.log(req.query);
 
-    res.send(`hello ${req.body.name}, your age is : ${req.query.age}`);
+    // res.send(`hello ${req.body.name}, your age is : ${req.query.age}`);
+
+       res.json({
+        name: req.body.name,
+        age: req.query.age
+        
+    });
 });
 
 
