@@ -1,4 +1,5 @@
  const express = require('express');
+ 
 
  const app = express();
 
@@ -23,7 +24,12 @@ app.get("/numbers", (req,res) => {
         numbers += i + " ";
     }
     // res.send(`the numbers are : ${numbers}`);
-    res.sendFile(__dirname + "/views/numbers.html");
+    // res.sendFile(__dirname + "/views/numbers.html");
+   app.render("numbers.ejs",{
+    name : "MOHAMMED",
+    numbers : numbers,
+   });
+
 });
 
 app.get("/findSum/:numbers1/:numbers2", (req,res) => {
