@@ -1,9 +1,25 @@
  const express = require('express');
+ const mongoose = require('mongoose');
  
 
  const app = express();
 
  app.use(express.json());
+
+
+
+const Article = require('./models/Article');
+
+
+
+mongoose.connect("mongodb+srv://mohammedelnour:0117063955@myfierstonecluster.tlp1kbe.mongodb.net/?appName=MyFierstOneCluster")
+    .then(() => {
+        console.log("Connected to MongoDB");
+    }).catch((error) => {
+        console.error("Error connecting to MongoDB", error);
+    });
+
+//  mongodb+srv://<db_username>:<db_password>@myfierstonecluster.tlp1kbe.mongodb.net/?appName=MyFierstOneCluster
 
 
 app.get("/hello", (req,res) => {
@@ -85,3 +101,5 @@ app.listen(3000, () => {
     console.log(" Server is running on port 3000");
 });
 
+
+// al-vFiVYoanaL5dhUyDCZU0G5IozWtHaC7W6eh0UdYtW1O
