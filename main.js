@@ -8,7 +8,7 @@
 
 
 
-const Article = require('./models/Article');
+const Article = require('./models/Article.js');
 
 
 
@@ -96,6 +96,21 @@ app.get("/findSummation", (req,res) => {
 });
 
 
+
+// aritcale endpoints
+
+app.post("/articles", async (req,res) => {
+    const newArticle = new Article();
+
+    const arTitle = req.body.articaletitle;
+    const arBody = req.body.articalebody;
+
+    newArticle.title = arTitle;
+    newArticle.body = arBody;
+    newArticle.Numberoflikes = 110;
+    await newArticle.save();
+    res.json(newArticle);
+});
 
 app.listen(3000, () => {
     console.log(" Server is running on port 3000");
