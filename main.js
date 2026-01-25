@@ -112,6 +112,15 @@ app.post("/articles", async (req,res) => {
     res.json(newArticle);
 });
 
+app.get("/articles/:articleId", async (req,res) => {
+    const id = req.params.articleId;
+    const article = await Article.findById(id);
+    res.json(article);
+    
+const articles = await Article.find();
+res.json(articles);
+});
+
 app.listen(3000, () => {
     console.log(" Server is running on port 3000");
 });
