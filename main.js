@@ -112,13 +112,38 @@ app.post("/articles", async (req,res) => {
     res.json(newArticle);
 });
 
+
+
 app.get("/articles/:articleId", async (req,res) => {
     const id = req.params.articleId;
     const article = await Article.findById(id);
     res.json(article);
+});
+
+app.get("/articles", async (req,res) => {
+    const articles =  await Article.find();
+
+
     
-const articles = await Article.find();
+
 res.json(articles);
+});
+
+
+app.delete("/articles/:articleId", async (req,res) => {
+    const id = req.params.articleId;
+   try{
+    const article = await Article.findByIdAndDelete(id);
+    res.json(article);
+    return; 
+   } catch(error){
+    console.log("Error deleting article", id);
+    return;
+   }
+}); 
+
+app.get("/showArticles", async (req,res) => {
+const articles =  await Article.find();
 });
 
 app.listen(3000, () => {
