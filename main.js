@@ -143,7 +143,11 @@ app.delete("/articles/:articleId", async (req,res) => {
 }); 
 
 app.get("/showArticles", async (req,res) => {
-const articles =  await Article.find();
+    const articles =  await Article.find();
+
+
+res.render("article.ejs" , {
+    allarticlesList : articles});
 });
 
 app.listen(3000, () => {

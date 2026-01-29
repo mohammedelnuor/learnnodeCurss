@@ -9,6 +9,19 @@
 
     <h1> All articles page</h1>
     <hr/>
+
+ <div style="background: orange; color: black; padding: 20px;">
+    <% for (let article of allarticlesList) { %>
+        <h1 style="background-color: blue;"><%= article.title %></h1>
+
+        <h5 style="background-color: red;"><%= article.body %></h5>
+        <br/>
+    <% } %>
+</div>
+
+            
+        
+    </div>
     
 </body>
 </html>
